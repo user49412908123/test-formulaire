@@ -1,0 +1,364 @@
+:root {
+  --bg: #f6efe7;
+  --bg-accent: #f1d8d5;
+  --card: rgba(255, 252, 248, 0.88);
+  --card-strong: #fffaf5;
+  --text: #2e1f25;
+  --muted: #6c5960;
+  --line: rgba(92, 59, 73, 0.15);
+  --accent: #bf5a76;
+  --accent-dark: #8f3d56;
+  --gold: #d1a65a;
+  --shadow: 0 24px 60px rgba(78, 44, 57, 0.15);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Manrope", sans-serif;
+  color: var(--text);
+  background:
+    radial-gradient(circle at top left, rgba(209, 166, 90, 0.22), transparent 28%),
+    radial-gradient(circle at bottom right, rgba(191, 90, 118, 0.18), transparent 22%),
+    linear-gradient(135deg, var(--bg) 0%, #f9f4ef 46%, var(--bg-accent) 100%);
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.12) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.12) 1px, transparent 1px);
+  background-size: 42px 42px;
+  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), transparent 78%);
+}
+
+.page-shell {
+  width: min(1120px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 40px 0 56px;
+}
+
+.hero-card,
+.form-card {
+  backdrop-filter: blur(20px);
+  background: var(--card);
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  box-shadow: var(--shadow);
+}
+
+.hero-card {
+  display: grid;
+  grid-template-columns: minmax(0, 1.5fr) minmax(280px, 0.8fr);
+  gap: 28px;
+  padding: 36px;
+  border-radius: 30px;
+}
+
+.eyebrow,
+.panel-kicker,
+.summary-label {
+  margin: 0 0 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 0.74rem;
+  font-weight: 700;
+  color: var(--accent-dark);
+}
+
+h1,
+h2 {
+  margin: 0;
+  font-family: "Cormorant Garamond", serif;
+  line-height: 0.95;
+}
+
+h1 {
+  max-width: 10ch;
+  font-size: clamp(3.1rem, 6vw, 5.6rem);
+}
+
+h2 {
+  font-size: clamp(2.4rem, 4vw, 3.3rem);
+}
+
+.intro,
+.info-panel li,
+.option-text,
+.confirmation,
+.field span,
+.field input,
+.field textarea,
+.field select {
+  font-size: 0.98rem;
+}
+
+.intro {
+  max-width: 56ch;
+  margin: 18px 0 0;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.highlight-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 30px;
+}
+
+.highlight-grid article,
+.info-panel,
+.option-card,
+.choice-block,
+.field input,
+.field select,
+.field textarea {
+  border: 1px solid var(--line);
+}
+
+.highlight-grid article {
+  padding: 18px;
+  border-radius: 22px;
+  background: rgba(255, 247, 241, 0.75);
+}
+
+.highlight-value {
+  display: block;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--accent-dark);
+}
+
+.highlight-label {
+  color: var(--muted);
+}
+
+.info-panel {
+  align-self: end;
+  padding: 24px;
+  border-radius: 26px;
+  background: linear-gradient(180deg, rgba(255, 250, 245, 0.96), rgba(249, 235, 232, 0.88));
+}
+
+.info-panel ul {
+  margin: 0;
+  padding-left: 18px;
+  color: var(--muted);
+  line-height: 1.8;
+}
+
+.form-card {
+  margin-top: 24px;
+  padding: 34px;
+  border-radius: 30px;
+}
+
+.section-heading {
+  margin-bottom: 22px;
+}
+
+.order-form {
+  display: grid;
+  gap: 22px;
+}
+
+.field-grid,
+.option-grid,
+.extras-grid {
+  display: grid;
+  gap: 16px;
+}
+
+.field-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.field {
+  display: grid;
+  gap: 10px;
+}
+
+.field span {
+  font-weight: 700;
+}
+
+.field input,
+.field select,
+.field textarea {
+  width: 100%;
+  padding: 14px 16px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.72);
+  color: var(--text);
+  outline: none;
+  transition: border-color 180ms ease, transform 180ms ease, box-shadow 180ms ease;
+}
+
+.field input:focus,
+.field select:focus,
+.field textarea:focus {
+  border-color: rgba(191, 90, 118, 0.55);
+  box-shadow: 0 0 0 4px rgba(191, 90, 118, 0.12);
+  transform: translateY(-1px);
+}
+
+.field-full {
+  grid-column: 1 / -1;
+}
+
+.choice-block {
+  margin: 0;
+  padding: 18px;
+  border-radius: 24px;
+  background: rgba(255, 250, 245, 0.7);
+}
+
+.choice-block legend {
+  padding: 0 10px;
+  font-weight: 800;
+  color: var(--accent-dark);
+}
+
+.option-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.option-card {
+  display: grid;
+  gap: 10px;
+  padding: 18px;
+  border-radius: 22px;
+  background: var(--card-strong);
+  cursor: pointer;
+  transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
+}
+
+.option-card:hover,
+.option-card:has(input:checked) {
+  transform: translateY(-3px);
+  border-color: rgba(191, 90, 118, 0.5);
+  box-shadow: 0 12px 28px rgba(191, 90, 118, 0.14);
+}
+
+.option-card input {
+  accent-color: var(--accent);
+}
+
+.option-title {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.7rem;
+  font-weight: 700;
+}
+
+.option-text {
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.extras-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.checkbox-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 14px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.66);
+}
+
+.checkbox-row input {
+  accent-color: var(--accent);
+}
+
+.summary-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 18px 20px;
+  border-radius: 24px;
+  background: linear-gradient(135deg, rgba(46, 31, 37, 0.96), rgba(98, 58, 73, 0.96));
+  color: #fff7f3;
+}
+
+.summary-value {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+button {
+  border: 0;
+  border-radius: 999px;
+  padding: 14px 22px;
+  font: inherit;
+  font-weight: 800;
+  color: #fffaf7;
+  background: linear-gradient(135deg, var(--accent), #dd7e68);
+  cursor: pointer;
+  transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 28px rgba(191, 90, 118, 0.28);
+}
+
+.confirmation {
+  min-height: 1.5em;
+  margin: 0;
+  color: var(--accent-dark);
+  font-weight: 700;
+}
+
+@media (max-width: 920px) {
+  .hero-card,
+  .field-grid,
+  .option-grid,
+  .extras-grid {
+    grid-template-columns: 1fr;
+  }
+
+  h1 {
+    max-width: none;
+  }
+
+  .summary-bar {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 640px) {
+  .page-shell {
+    width: min(100% - 20px, 1120px);
+    padding: 20px 0 28px;
+  }
+
+  .hero-card,
+  .form-card {
+    padding: 22px;
+    border-radius: 24px;
+  }
+
+  .highlight-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .option-title {
+    font-size: 1.5rem;
+  }
+
+  button {
+    width: 100%;
+  }
+}
